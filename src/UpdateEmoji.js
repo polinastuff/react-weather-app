@@ -23,5 +23,5 @@ const emojiMapping={
 
 emoji= emojiMapping[main]
 
-return emoji
+return <span>{emoji}</span>
 }

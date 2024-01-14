@@ -26,5 +26,5 @@ export default function GetDate(props){
     minutes = `0${minutes}`;
   }
   let fullDate = `${days[day]}, ${hours}:${minutes}`;
-  return fullDate;
+  return <div>{fullDate}</div>;
 }
