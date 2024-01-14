@@ -1,0 +1,48 @@
+h4 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  padding: 20px 40px;
+  margin: 0;
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+}
+
+.date-time,
+.wind-humidity {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+}
+
+.city,
+.temperature,
+.currently {
+  font-family: "Aboreto", cursive;
+}
+
+.city,
+.temperature {
+  font-size: 50px;
+  font-weight: bold;
+  padding: 20px;
+}
+
+.currently {
+  font-size: 45px;
+  font-weight: 400;
+  padding: 50px 50px 20px 0;
+  margin: 20px 0 0;
+}
+.date-time {
+  padding: 0px 50px 10px 0;
+  font-size: 25px;
+}
+.wind-humidity {
+  line-height: 30px;
+  padding: 20px 50px;
+  margin: 50px 0 50px;
+}
+
+

@@ -1,0 +1,17 @@
+body {padding: 40px 0;}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: purple;
+}
+
+footer {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  margin: 7px;
+}

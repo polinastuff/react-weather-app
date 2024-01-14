@@ -1,0 +1,10 @@
+li {
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  list-style: none;
+}
+
+ul {
+  margin: 50px 50px;
+  text-align: center;
+}
