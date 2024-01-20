@@ -8,3 +8,9 @@ ul {
   margin: 50px 50px;
   text-align: center;
 }
+.temp {
+  font-weight: 600;
+}
+.night-temp {
+  color: rgba(39, 33, 66, 0.4);
+}
