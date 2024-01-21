@@ -7,7 +7,7 @@ import axios from "axios";
 
 export default function Weather (props) {
      let [city, setCity]= useState(props.defaultCity)
-     let [weatherData, setWeatherData] = useState({showInfo:false})
+     let [weatherData, setWeatherData] = useState({showInfo: false})
  
 
 function updateWeatherData (response) {
@@ -36,7 +36,7 @@ alert("Sorry, we could not get data for this city. Please check if spelling is c
 function submitForm (event){
     event.preventDefault();
     sendRequest();
-    event.target.reset()
+    event.target.reset();
 }
 
 function updateCity (event){

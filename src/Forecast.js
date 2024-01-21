@@ -1,28 +1,49 @@
-import React from "react"; 
+import React, {useState, useEffect} from "react"; 
 import "./Forecast.css";
+import UpdateEmoji from "./UpdateEmoji";
+import ForecastDay from "./ForecastDay";
 import axios from "axios";
 
 export default function Forecast (props){
+let [loaded, setLoaded]=useState(false);
+let [forecastData, setForecast] = useState(null);
+
+
+useEffect(() =>{
+    setLoaded(false);
+},[props.coordinates]);
+
+
+function displayForecast (response) {
+setLoaded(true)
+setForecast(response.data.daily)
+  }
+
+if (loaded) {
+    return (
+        <div className="Forecast">
+          <ul>
+            {forecastData.map(function(forecastDataDay, index){
+          if (index > 0 && index < 6){
+          return <li key={index}>
+          <span><UpdateEmoji main={forecastDataDay.weather[0].main}/></span> <ForecastDay timestamp={forecastDataDay.dt}/>
+          <div className="temp">
+          <span >{Math.round(forecastDataDay.temp.day)}°</span>
+          <span className="night-temp"> {Math.round(forecastDataDay.temp.night)}°</span>
+          </div>
+          </li>}else {
+            return null;
+          }})}
+          </ul>
+        </div>
+    )
+} else {
   let apiKey = "c8a77112b2faf6684bb4b21a0aa778ae";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${props.coordinates.lat}&lon=${props.coordinates.lon}&exclude=hourly,minutely&appid=${apiKey}&units=metric`;
 
-  function displayForecast (response) {
-console.log(response)
-  }
+  axios.get(apiUrl).then(displayForecast);
 
-axios.get(apiUrl).then(displayForecast);
+    return null;
+}
 
-    return (
-        <div className="Forecast">
-          <li>
-          <ul>
-          <span>☁️</span> Sat
-          <div className="temp">
-          <span >1°</span>
-          <span className="night-temp"> -2°</span>
-          </div>
-          </ul>
-          </li>
-        </div>
-    )
 }

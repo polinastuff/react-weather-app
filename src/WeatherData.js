@@ -2,7 +2,6 @@ import React from "react";
 import "./WeatherData.css";
 import GetDate from "./GetDate";
 import UpdateEmoji from "./UpdateEmoji";
-import WeatherTemperature from "./WeatherTemperature";
 
 export default function WeatherData (props){
  
@@ -14,8 +13,7 @@ export default function WeatherData (props){
                 </div>
                 <div className="col-md-6">
                   <h1 className="temperature">
-                    <WeatherTemperature celsius={props.data.temperature} /> <UpdateEmoji main={props.data.main}/>
-                
+                    {props.data.temperature} °C <UpdateEmoji main={props.data.main}/>
                   </h1>
                 </div>
         </div>
