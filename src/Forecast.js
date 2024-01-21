@@ -31,7 +31,7 @@ if (loaded) {
           <span >{Math.round(forecastDataDay.temp.day)}°</span>
           <span className="night-temp"> {Math.round(forecastDataDay.temp.night)}°</span>
           </div>
-          </li>}else {
+          </li>} else {
             return null;
           }})}
           </ul>

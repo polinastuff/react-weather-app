@@ -9,7 +9,7 @@ export default function Weather (props) {
      let [city, setCity]= useState(props.defaultCity)
      let [weatherData, setWeatherData] = useState({showInfo: false})
  
-
+//update weather data
 function updateWeatherData (response) {
 setWeatherData({
 showInfo: true,
@@ -32,7 +32,7 @@ let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${
 axios.get(apiURL).then(updateWeatherData).catch(function (error) {
 alert("Sorry, we could not get data for this city. Please check if spelling is correct.");});}   
 
-
+//form
 function submitForm (event){
     event.preventDefault();
     sendRequest();
@@ -43,6 +43,27 @@ function updateCity (event){
     setCity(event.target.value);
 }
 
+//get current location
+function getURL(location) {
+  let apiKey = "210d99196a88b9257ed8cb3535a0a0c5";
+  let URL = `https://api.openweathermap.org/data/2.5/weather?${location}&appid=${apiKey}&units=metric`;
+  return URL;
+}
+
+function getLocation(response) {
+  let latitude = response.coords.latitude;
+  let longitude = response.coords.longitude;
+  let location = `lat=${latitude}&lon=${longitude}`;
+
+  axios.get(getURL(location)).then(updateWeatherData);
+}
+
+function getCurrentLocationData (event){
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(getLocation);
+}
+
+//form
 let form = <form onSubmit={submitForm}>
                 <div className="row">
                   <div className="col-md-9">
@@ -67,11 +88,13 @@ let form = <form onSubmit={submitForm}>
                       type="button"
                       className="btn btn-success ms-1"
                       value="My location"
+                      onClick={getCurrentLocationData}
                     />
                   </div>
                 </div>
             </form>
 
+//return
 if (weatherData.showInfo) {
 return (
   <div className="row">
