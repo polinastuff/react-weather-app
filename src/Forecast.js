@@ -38,7 +38,7 @@ if (loaded) {
         </div>
     )
 } else {
-  let apiKey = "c8a77112b2faf6684bb4b21a0aa778ae";
+  let apiKey="8402ccd9e55983fce71eeeaa1d2bd1fc";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${props.coordinates.lat}&lon=${props.coordinates.lon}&exclude=hourly,minutely&appid=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(displayForecast);
