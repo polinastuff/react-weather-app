@@ -38,8 +38,8 @@ if (loaded) {
         </div>
     )
 } else {
-  let apiKey="210d99196a88b9257ed8cb3535a0a0c5";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${props.coordinates.lat}&lon=${props.coordinates.lon}&exclude=hourly,minutely&appid=${apiKey}&units=metric`;
+  let apiKey="8402ccd9e55983fce71eeeaa1d2bd1fc";
+  let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${props.coordinates.lat}&lon=${props.coordinates.lon}&exclude=hourly,minutely&appid=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(displayForecast);
 
